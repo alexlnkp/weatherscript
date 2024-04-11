@@ -4,6 +4,9 @@ It's using a fantastic website called [**wttr.in**](https://wttr.in) for the wea
 
 A [**JSON library**](https://github.com/nlohmann/json) is made by [@nlohmann](https://github.com/nlohmann)!
 
+The program is based off a python script by [@SolDoesTech](https://github.com/SolDoesTech), [SolDoesTech/HyprV/waybar/scripts/waybar-wttr.py](https://github.com/SolDoesTech/HyprV4/blob/c81cf650443d680bf7a589de6128d01020dd1bc6/HyprV/waybar/scripts/waybar-wttr.py)
+
+
 ### Note
 Website looks at your IP for the area you're located at. Using proxy or VPN will most likely yield incorrect results.
 
