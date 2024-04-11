@@ -7,7 +7,6 @@
 #include "parser.h"
 
 
-
 #ifdef IMPERIAL
   #define TEMP_SYMBOL "°F"
   #define TEMP_TYPE "temp_F"
@@ -15,7 +14,6 @@
   #define TEMP_SYMBOL "°C"
   #define TEMP_TYPE "temp_C"
 #endif
-
 
 
 int main(int argc, char **argv) {
