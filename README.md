@@ -7,6 +7,11 @@ A [**JSON library**](https://github.com/nlohmann/json) is made by [@nlohmann](ht
 ### Note
 Website looks at your IP for the area you're located at. Using proxy or VPN will most likely yield incorrect results.
 
+## Dependencies
+1. Using your package manager install curl developer package.
+   - Ubuntu: `sudo apt-get install libcurl4-openssl-dev`
+   - Arch: `sudo pacman -S curl`
+
 ## Building
 1. Clone the repository using `git clone https://github.com/alexlnkp/weatherscript.git`
 2. `cd` into the cloned repository'
