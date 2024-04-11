@@ -5,7 +5,7 @@
 #include "json.hpp"
 
 #include "parser.h"
-#include <curl/curl.h>
+
 
 
 #ifdef IMPERIAL
@@ -16,15 +16,17 @@
   #define TEMP_TYPE "temp_C"
 #endif
 
+
+
 int main(int argc, char **argv) {
 
     std::string res = (argc == 1) ? request("") : request(argv[1]);
     
-	nlohmann::json j = nlohmann::json::parse(res);
+	nlohmann::json json_res = nlohmann::json::parse(res);
 
-    std::string weather_code = j["current_condition"][0]["weatherCode"];
+    std::string weather_code = json_res["current_condition"][0]["weatherCode"];
     std::string weather_symbol = get_weather_symbol(weather_code);
-	std::string temp = j["current_condition"][0][TEMP_TYPE].get<std::string>();
+	std::string temp = json_res["current_condition"][0][TEMP_TYPE].get<std::string>();
 	
 	std::cout << weather_symbol << ' ' << temp << TEMP_SYMBOL << std::endl;
     
