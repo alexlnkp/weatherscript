@@ -1,13 +1,31 @@
+#include <iostream>
 #include <stdio.h>
-#include <curl/curl.h>
+
+#include "jsonhandler.h"
+#include "json.hpp"
 
 #include "parser.h"
+#include <curl/curl.h>
 
-#include <iostream>
+
+#ifdef IMPERIAL
+  #define TEMP_SYMBOL "°F"
+  #define TEMP_TYPE "temp_F"
+#else
+  #define TEMP_SYMBOL "°C"
+  #define TEMP_TYPE "temp_C"
+#endif
 
 int main() {
 	std::string res = request();
-	std::cout << res << std::endl;
 	
+	nlohmann::json j = nlohmann::json::parse(res);
+
+    std::string weather_code = j["current_condition"][0]["weatherCode"];
+    std::string weather_symbol = get_weather_symbol(weather_code);
+
+	std::string temp = j["current_condition"][0][TEMP_TYPE].get<std::string>();
+	std::cout << weather_symbol << ' ' << temp << TEMP_SYMBOL << std::endl;
+    
 	return EXIT_SUCCESS;
 }

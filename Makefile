@@ -16,6 +16,18 @@ SRC		:= src
 INCLUDE	:= include
 LIB		:= lib
 
+ifneq ($(SYSTEM),)
+ifeq ($(SYSTEM),imperial)
+CXXFLAGS += -DIMPERIAL
+else ifeq ($(SYSTEM),metric)
+CXXFLAGS += -DMETRIC
+else
+$(error Invalid system specified: $(SYSTEM))
+endif
+else
+CXXFLAGS += -DMETRIC
+endif
+
 ifeq ($(OS),Windows_NT)
 MAIN	    := main.exe
 SOURCEDIRS	:= $(SRC)
@@ -64,5 +76,4 @@ clean:
 	@echo Cleanup complete!
 
 run: all
-	./$(OUTPUTMAIN)
-	@echo Executing 'run: all' complete!
+	@./$(OUTPUTMAIN)
