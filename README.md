@@ -36,7 +36,7 @@ Therefore, you can very simply modify the code by adding or removing data you pa
 
 For instance, here's how you yield the `FeelsLikeC`:
 ```cpp
-std::string feelslike = j["current_condition"][0]["FeelsLikeC"];
+std::string feelslike = json_res["current_condition"][0]["FeelsLikeC"];
 ```
 
 Then, you can easily modify the print statement by adding this information. For example:
