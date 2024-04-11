@@ -5,11 +5,11 @@
 
 typedef size_t( * curl_write)(char * , size_t, size_t, std::string * );
 
-std::string request() {
+std::string request(std::string location) {
     CURLcode res_code = CURLE_FAILED_INIT;
     CURL * curl = curl_easy_init();
     std::string result;
-    std::string url = "https://wttr.in/?format=j1";
+    std::string url = "https://wttr.in/" + location + "?format=j1";
 
     curl_global_init(CURL_GLOBAL_ALL);
 

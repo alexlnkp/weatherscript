@@ -6,6 +6,6 @@
 
 #define PARSER_H
 
-std::string request();
+std::string request(std::string location);
 
 #endif
