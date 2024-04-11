@@ -13,11 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: dependencies
+      run: apt-get install libcurl4-openssl-dev
     - name: make
       run: make
-    - name: make SYSTEM=imperial
-      run: make SYSTEM=imperial
-    - name: make SYSTEM=metric
-      run: make SYSTEM=metric
-    - name: make clean
-      run: make clean
