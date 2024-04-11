@@ -1,3 +1,4 @@
+[![C/C++ CI](https://github.com/alexlnkp/weatherscript/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/alexlnkp/weatherscript/actions/workflows/c-cpp.yml)
 # WeatherScript - utility made for easy and fast yield of weather report for the area
 It's using a fantastic website called [**wttr.in**](https://wttr.in) for the weather report itself
 
