@@ -16,6 +16,10 @@ Website looks at your IP for the area you're located at. Using proxy or VPN will
      
    - Run `make SYSTEM=metric` or simply `make` for Metric system (Celcius)
 
+## Usage
+- To get a weather forecast for the area determined by your IP - simply run the program.
+- To get a weather forecast for a specific area - run the program with an argument (e.g. `Paris` for weather in Paris)
+
 ## Modifying
 The code relies on simply requesting the webpage's contents directly from https://wttr.in/?format=j1.
 It yields the JSON table that includes a **TON** of information about the weather, including `FeelsLike[C|F]`, `visibility`, `humidity`, and much more!
