@@ -8,7 +8,7 @@ The program is based off a python script by [@SolDoesTech](https://github.com/So
 
 
 ### Note
-Website looks at your IP for the area you're located at. Using proxy or VPN will most likely yield incorrect results.
+Website looks at your IP for the area you're located at. Using proxy or VPN will most likely yield incorrect results unless you specify location as an argument. For instruction look at the [**Usage**](https://github.com/alexlnkp/weatherscript/tree/master#usage) section.
 
 ## Dependencies
 - Using your package manager install curl developer package.
@@ -43,16 +43,42 @@ Website looks at your IP for the area you're located at. Using proxy or VPN will
 
 ## Modifying
 The code relies on simply requesting the webpage's contents directly from https://wttr.in/?format=j1.
-It yields the JSON table that includes a **TON** of information about the weather, including `FeelsLike[C|F]`, `visibility`, `humidity`, and much more!
+It yields the JSON table that includes a **TON** of information about the weather, including `FeelsLike[C|F]`, `visibility[Miles]`, `humidity`, and much more!
 Therefore, you can very simply modify the code by adding or removing data you parse from the JSON.
 
-For instance, here's how you yield the `FeelsLikeC`:
+For instance, here's how you yield the `visibility` in meters:
+
+- `src/main.cpp`**:**
 ```cpp
-std::string feelslike = json_res["current_condition"][0]["FeelsLikeC"];
+std::string visibility = json_res["current_condition"][0]["visibility"];
 ```
 
-Then, you can easily modify the print statement by adding this information. For example:
+Then, you can easily modify the `std::cout` by adding this information. For example:
+
+- `src/main.cpp`**:**
 ```cpp
-std::cout << weather_symbol << ' ' << temp << TEMP_SYMBOL << '(' << feelslike << ')' << std::endl;
+std::cout << weather_symbol << ' ' << temp << TEMP_SYMBOL << '(' << visibility << ')' << std::endl;
 ```
-Will print out additionally the FeelsLike parameter for the temperature in the parenthesis.
+
+Will print out additionally the Visibility parameter for the temperature in the parenthesis.
+
+You could also make code more versatile by looking at the top of the `main.cpp` and changing the fields to yield information from according to the system the app is built for.
+
+So, you could add a new define at the top, like so:
+
+- `src/main.cpp`**:**
+```cpp
+#ifdef IMPERIAL
+	#define TEMP_SYMBOL "°F"
+	#define TEMP_TYPE "temp_F"
+  #define VISIBILITY "visibilityMiles" // Our new data
+#else
+	#define TEMP_SYMBOL "°C"
+	#define TEMP_TYPE "temp_C"
+  #define VISIBILITY "visibility" // Our new data
+#endif
+```
+
+This way, the data to yield is decided at the compile time by the `SYSTEM` variable you pass to `make`.
+If you make with `SYSTEM=imperial` - the information you yield will be in an imperial system.
+In other words, you will yield `visibilityMiles` data instead of `visibility` (meters).
