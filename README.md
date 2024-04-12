@@ -29,6 +29,18 @@ Website looks at your IP for the area you're located at. Using proxy or VPN will
 - To get a weather forecast for the area determined by your IP - simply run the program.
 - To get a weather forecast for a specific area - run the program with an argument (e.g. `Paris` for weather in Paris)
 
+## Example Waybar Config
+```jsonc
+    "custom/weather": {
+        "format": "{}",
+        "exec": "/kirby/Coding/waybar-wttr/output/main",
+        "on-click": "/kirby/Coding/waybar-wttr/output/main",
+        "interval": 300,
+        "tooltip": true,
+        "return-type" : "json"
+    },
+```
+
 ## Modifying
 The code relies on simply requesting the webpage's contents directly from https://wttr.in/?format=j1.
 It yields the JSON table that includes a **TON** of information about the weather, including `FeelsLike[C|F]`, `visibility`, `humidity`, and much more!
