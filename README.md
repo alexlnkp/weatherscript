@@ -30,6 +30,7 @@ Website looks at your IP for the area you're located at. Using proxy or VPN will
 - To get a weather forecast for a specific area - run the program with an argument (e.g. `Paris` for weather in Paris)
 
 ## Example Waybar Config
+- Simply add this custom module definition in your config `.jsonc` file and then add the module in any module list you want.
 ```jsonc
     "custom/weather": {
         "format": "{}",
@@ -71,11 +72,18 @@ So, you could add a new define at the top, like so:
 #ifdef IMPERIAL
 	#define TEMP_SYMBOL "°F"
 	#define TEMP_TYPE "temp_F"
+	#define FEELSLIKE "FeelsLikeF"
+	#define WINDSPEED "windspeedMiles"
+	#define SPEEDSYMB "Mi/h"
   #define VISIBILITY "visibilityMiles" // Our new data
 #else
 	#define TEMP_SYMBOL "°C"
 	#define TEMP_TYPE "temp_C"
+	#define FEELSLIKE "FeelsLikeC"
+	#define WINDSPEED "windspeedKmph"
+	#define SPEEDSYMB "M/s"
   #define VISIBILITY "visibility" // Our new data
+	#define CONVERT_WINDSPEED_TO_M_PER_S // If this is defined, wind speed is converted from km/h to m/s
 #endif
 ```
 
