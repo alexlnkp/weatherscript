@@ -24,8 +24,6 @@
 #define HUMIDITY std::string("")
 
 int main(int argc, char **argv) {
-    std::string res = (argc == 1) ? request("") : request(argv[1]);
-
 	std::string res = (argc == 1) ? request("") : request(argv[1]);
 	
 	nlohmann::json json_res = nlohmann::json::parse(res);
