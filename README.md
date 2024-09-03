@@ -1,6 +1,6 @@
 [![C/C++ CI](https://github.com/alexlnkp/weatherscript/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/alexlnkp/weatherscript/actions/workflows/c-cpp.yml)
 # WeatherScript - utility made for easy and fast yield of weather report for the area
-It's using a fantastic website called [**wttr.in**](https://wttr.in) for the weather report itself
+It uses a fantastic website called [**wttr.in**](https://wttr.in) for the weather report itself
 
 A [**JSON library**](https://github.com/nlohmann/json) is made by [@nlohmann](https://github.com/nlohmann)!
 
