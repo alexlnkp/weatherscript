@@ -1,10 +1,16 @@
 [![C/C++ CI](https://github.com/alexlnkp/weatherscript/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/alexlnkp/weatherscript/actions/workflows/c-cpp.yml)
-# WeatherScript - utility made for easy and fast yield of weather report for the area
+# WeatherScript 
+Utility made for easy and fast yield of weather report for the area.
+
 It uses a fantastic website called [**wttr.in**](https://wttr.in) for the weather report itself
 
 A [**JSON library**](https://github.com/nlohmann/json) is made by [@nlohmann](https://github.com/nlohmann)!
 
 The program is based off a python script by [@SolDoesTech](https://github.com/SolDoesTech), [SolDoesTech/HyprV/waybar/scripts/waybar-wttr.py](https://github.com/SolDoesTech/HyprV4/blob/c81cf650443d680bf7a589de6128d01020dd1bc6/HyprV/waybar/scripts/waybar-wttr.py)
+
+
+### Why
+This small program is made for people who want to check the weather, above all things. This might include checking the weather by displaying it in the Waybar or anything like that, too!
 
 
 ### Note
